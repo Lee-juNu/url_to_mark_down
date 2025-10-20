@@ -2,13 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from collections.abc import Generator
 from typing import Any, Mapping
-
-# Dify OSS SDK 호환용 shim
-try:
-    from dify_plugin.interfaces.datasource.website import WebsiteCrawlDatasource
-except ImportError:
-    from dify_plugin import Datasource as WebsiteCrawlDatasource
-
+from dify_plugin.interfaces.datasource.website import WebsiteCrawlDatasource
 from dify_plugin.entities.datasource import (
     WebSiteInfo,
     WebSiteInfoDetail,
@@ -34,6 +28,7 @@ class URLToMarkdownDatasource(WebsiteCrawlDatasource):
 
         try:
             resp = requests.get(source_url, timeout=15)
+            resp.encoding = resp.apparent_encoding or "utf-8"
             resp.raise_for_status()
 
             soup = BeautifulSoup(resp.text, "html.parser")

@@ -10,7 +10,7 @@ identity:
   name: url_to_mark_down
 
 parameters:
-  - form: llm
+  - form: form
     description:
       en_US: The target URL to fetch and convert.
       ja_JP: 取得してMarkdown化する対象URL。
@@ -20,7 +20,16 @@ parameters:
     name: url
     required: true
     type: string
-
+  - form: form
+    description:
+      en_US: The target URL to fetch and convert.
+      ja_JP: 取得してMarkdown化する対象URL。
+    label:
+      en_US: Target URL
+      ja_JP: 対象URL
+    name: url2
+    required: true
+    type: string
 output_schema:
   type: object
   properties:
