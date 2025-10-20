@@ -1,6 +1,6 @@
 description:
-  en_US: Fetch a webpage and convert it to text/markdown-like format.
-  ja_JP: ウェブページを取得し、テキスト/Markdown形式に変換します。
+  en_US: Fetch a webpage and convert it to Markdown text.
+  ja_JP: ウェブページを取得し、Markdown形式に変換します。
 
 identity:
   author: msen_lee
@@ -12,8 +12,8 @@ identity:
 parameters:
   - form: llm
     description:
-      en_US: The target URL to fetch.
-      ja_JP: 取得する対象のURL。
+      en_US: The target URL to fetch and convert.
+      ja_JP: 取得してMarkdown化する対象URL。
     label:
       en_US: Target URL
       ja_JP: 対象URL
@@ -26,16 +26,16 @@ output_schema:
   properties:
     source_url:
       type: string
-      description: The source URL
-    content:
-      type: string
-      description: The extracted plain text
+      description: The original source URL.
     title:
       type: string
-      description: The webpage title
+      description: The webpage title.
+    content:
+      type: string
+      description: The extracted content converted to Markdown.
     description:
       type: string
-      description: Short excerpt from the content
+      description: Short excerpt from the content.
 
 provider_type: website_crawl
 
