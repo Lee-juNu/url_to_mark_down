@@ -1,0 +1,27 @@
+identity:
+  author: "msen_lee"
+  name: "url_to_mark_down"
+  label:
+    en_US: "URL to Markdown"
+    ja_JP: "URLをMarkdown化"
+  description:
+    en_US: "A simple datasource that fetches a URL directly and converts its content to text."
+    ja_JP: "指定したURLを直接取得し、その内容をテキスト化する簡易データソース。"
+  icon: "icon.svg"
+
+credentials_schema:
+  - name: "dummy"
+    type: "text-input"
+    required: false
+    label:
+      en_US: "Dummy Field (no credentials needed)"
+      ja_JP: "ダミーフィールド（認証不要）"
+
+datasources:
+  - datasources/url_to_mark_down.yaml
+
+provider_type: website_crawl
+
+extra:
+  python:
+    source: provider/url_to_mark_down.py
